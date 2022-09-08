@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bk.Controller.AddPartMenuController">
+    <children>
+        <VBox prefHeight="630.0" prefWidth="550.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                <opaqueInsets>
+                    <Insets />
+                </opaqueInsets>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add Part">
+                    <HBox.margin>
+                        <Insets left="50.0" right="20.0" />
+                    </HBox.margin>
+                    <font>
+                        <Font name="Courier New Bold" size="18.0" />
+                    </font>
+                </Text>
+                <RadioButton fx:id="addPartInHouseRBtn" mnemonicParsing="false" onAction="#addPartInHouseClick" text="In-House">
+                    <font>
+                        <Font name="Courier New" size="12.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets left="10.0" right="40.0" />
+                    </HBox.margin>
+               <toggleGroup>
+                  <ToggleGroup fx:id="addPartRBtnTglGrp" />
+               </toggleGroup>
+                </RadioButton>
+                <RadioButton fx:id="addPartOutsourceRBtn" layoutX="33.0" layoutY="10.0" mnemonicParsing="false" onAction="#addPartOutsourceClick" text="Outsourced" toggleGroup="$addPartRBtnTglGrp">
+                    <font>
+                        <Font name="Courier New" size="12.0" />
+                    </font>
+                </RadioButton>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="200.0" spacing="65.0">
+                <children>
+                    <Label text="ID">
+                        <font>
+                            <Font name="Courier New Bold" size="14.0" />
+                        </font>
+                        <HBox.margin>
+                            <Insets />
+                        </HBox.margin>
+                    </Label>
+                    <TextField fx:id="addPartIdTxt" disable="true" editable="false" prefHeight="23.0" prefWidth="160.0" text="Auto Gen - Disabled">
+                        <font>
+                            <Font name="Courier New Italic" size="12.0" />
+                        </font>
+                    </TextField>
+                </children>
+                <VBox.margin>
+                    <Insets />
+                </VBox.margin>
+                <padding>
+                    <Insets right="200.0" />
+                </padding>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="110.0" prefHeight="80.0" prefWidth="200.0" spacing="65.0">
+                <children>
+                    <Label text="Name">
+                        <font>
+                            <Font name="Courier New Bold" size="14.0" />
+                        </font>
+                        <HBox.margin>
+                            <Insets />
+                        </HBox.margin>
+                    </Label>
+                    <TextField fx:id="addPartNameTxt" prefHeight="23.0" prefWidth="160.0">
+                        <font>
+                            <Font name="Courier New Italic" size="12.0" />
+                        </font>
+                    </TextField>
+                </children>
+                <padding>
+                    <Insets right="200.0" />
+                </padding>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="190.0" prefHeight="80.0" prefWidth="200.0" spacing="65.0">
+                <children>
+                    <Label text="Inv">
+                        <font>
+                            <Font name="Courier New Bold" size="14.0" />
+                        </font>
+                        <HBox.margin>
+                            <Insets />
+                        </HBox.margin>
+                    </Label>
+                    <TextField fx:id="addPartInvTxt" prefHeight="23.0" prefWidth="160.0">
+                        <font>
+                            <Font name="Courier New Italic" size="12.0" />
+                        </font>
+                    </TextField>
+                </children>
+                <padding>
+                    <Insets right="200.0" />
+                </padding>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="270.0" prefHeight="80.0" prefWidth="200.0" spacing="65.0">
+                <children>
+                    <Label text="Price/Cost">
+                        <font>
+                            <Font name="Courier New Bold" size="14.0" />
+                        </font>
+                        <HBox.margin>
+                            <Insets />
+                        </HBox.margin>
+                    </Label>
+                    <TextField fx:id="addPartCostTxt" prefHeight="23.0" prefWidth="160.0">
+                        <font>
+                            <Font name="Courier New Italic" size="12.0" />
+                        </font>
+                    </TextField>
+                </children>
+                <padding>
+                    <Insets right="200.0" />
+                </padding>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="350.0" prefHeight="80.0" prefWidth="200.0" spacing="20.0">
+                <children>
+                    <Label text="Max">
+                        <font>
+                            <Font name="Courier New Bold" size="14.0" />
+                        </font>
+                        <HBox.margin>
+                            <Insets right="52.0" />
+                        </HBox.margin>
+                    </Label>
+                    <TextField fx:id="addPartMaxTxt" prefHeight="23.0" prefWidth="115.0">
+                        <font>
+                            <Font name="Courier New Italic" size="12.0" />
+                        </font>
+                        <HBox.margin>
+                            <Insets right="2.0" />
+                        </HBox.margin>
+                    </TextField>
+                    <Label layoutX="109.0" layoutY="41.0" text="Min">
+                        <font>
+                            <Font name="Courier New Bold" size="14.0" />
+                        </font>
+                        <HBox.margin>
+                            <Insets />
+                        </HBox.margin>
+                    </Label>
+                    <TextField fx:id="addPartMinTxt" layoutX="109.0" layoutY="39.0" prefHeight="23.0" prefWidth="115.0">
+                        <font>
+                            <Font name="Courier New Italic" size="12.0" />
+                        </font>
+                    </TextField>
+                </children>
+                <padding>
+                    <Insets right="60.0" />
+                </padding>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="430.0" prefHeight="80.0" prefWidth="200.0" spacing="65.0">
+                <children>
+                    <Label fx:id="addPartMachineOrCompanyLabel">
+                        <font>
+                            <Font name="Courier New Bold" size="14.0" />
+                        </font>
+                        <HBox.margin>
+                            <Insets />
+                        </HBox.margin>
+                    </Label>
+                    <TextField fx:id="addPartMachineOrCompanyTxt" prefHeight="23.0" prefWidth="160.0">
+                        <font>
+                            <Font name="Courier New Italic" size="12.0" />
+                        </font>
+                    </TextField>
+                </children>
+                <padding>
+                    <Insets right="200.0" />
+                </padding>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="200.0" spacing="45.0">
+                <children>
+                    <Button mnemonicParsing="false" onAction="#addPartSaveButton" text="Save" />
+                    <Button mnemonicParsing="false" onAction="#addPartCancelButton" text="Cancel" />
+                </children>
+                <VBox.margin>
+                    <Insets right="30.0" />
+                </VBox.margin>
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>
