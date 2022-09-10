@@ -7,7 +7,7 @@ package bk.Model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-/** Define Inventory Class. */
+/** Define Inventory Class.  */
 
 public class Inventory {
 
@@ -20,7 +20,7 @@ public class Inventory {
     private static ObservableList<Product> allProducts = FXCollections.observableArrayList();
 
 
-    /** Create variables to store Unique Part and Product ID */
+    /** Create variables to store Unique Part and Product ID  */
 
     private static int uniquePartId = 100;
     private static int uniqueProdId = 1000;
@@ -68,7 +68,7 @@ public class Inventory {
 
 
     /** Method to search Parts by using the part name
-     * @param partName
+     * @param partName the name of the Part being searched
      * @return A filtered list of parts based on search criteria.
      */
     public static ObservableList<Part> lookupPart(String partName) {
@@ -90,7 +90,7 @@ public class Inventory {
     /** Method to search Products by Product ID
      *
      * Method decommissioned due to dynamic search field utilization.
-     * @param productId
+     * @param productId the ID of the product being searched
      * @return A single Product matched by ID.
      */
     public static Product lookupProduct(int productId){
@@ -108,7 +108,7 @@ public class Inventory {
 
 
     /** Method to search Products by using the product name
-     * @param productName
+     * @param productName the name of the Product being searched
      * @return a filtered list of products based on search criteria.
      */
     public static ObservableList<Product> lookupProduct(String productName) {
@@ -128,8 +128,8 @@ public class Inventory {
     }
 
     /** Method to index and update parts in the allParts Observable List.
-     * @param index
-     * @param selectedPart
+     * @param index index of the Part being updated
+     * @param selectedPart the updated Part
      */
     public static void updatePart (int index, Part selectedPart) {
 
@@ -137,8 +137,8 @@ public class Inventory {
     }
 
     /** Method to index and update products in the allProducts Observable List.
-     *@param index
-     * @param newProduct
+     *@param index index of the Product being updated
+     * @param newProduct the updated Product
      */
     public static void updateProduct (int index, Product newProduct) {
 
@@ -146,7 +146,7 @@ public class Inventory {
     }
 
     /** Method to delete a selected part.
-     *@param selectedPart
+     *@param selectedPart the part to be deleted
      * @return True if part was removed
      */
     public static boolean deletePart (Part selectedPart) {
@@ -155,7 +155,7 @@ public class Inventory {
     }
 
     /** Method to delete a selected product.
-     * @param selectedProduct
+     * @param selectedProduct the product to be deleted
      * @return True if product was removed
      */
     public static boolean deleteProduct (Product selectedProduct) {
@@ -264,9 +264,7 @@ public class Inventory {
         product3.addAssociatedPart(part3);
         product3.addAssociatedPart(part6);
         product3.addAssociatedPart(part8);
+    }
 
-
-
- }
-    */
+     */
 }

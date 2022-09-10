@@ -39,7 +39,7 @@ public class AddProductMenuController implements Initializable {
      * This list will hold associated parts in the current add session and either save or discord depending on user input.
      */
 
-    private static ObservableList<Part> tempAssocParts = FXCollections.observableArrayList();
+    private ObservableList<Part> tempAssocParts = FXCollections.observableArrayList();
 
     /** Define the available Parts TableView.
      * Display parts information in a table format with columns for ID, Name, Inventory, and Cost/Price per unit.
@@ -79,7 +79,7 @@ public class AddProductMenuController implements Initializable {
 
     /** Create method that validates the value input for Inventory field.
      *
-     * Compare Stock level input and return true if value is in range between min & max input values.
+     * Compare Stock level input and return true if value is in range between min and max input values.
      * If validation fails, clear inventory field value and display error message to user.
      *
      * @param min user input minimum level
@@ -172,7 +172,7 @@ public class AddProductMenuController implements Initializable {
         }
     }
 
-    /** Method that adds a highlighted Part from the Parts Table to the temporary Associated Parts List & TableView.
+    /** Method that adds a highlighted Part from the Parts Table to the temporary Associated Parts List and TableView.
      *
      * @param event Add button clicked
      */
@@ -259,6 +259,7 @@ public class AddProductMenuController implements Initializable {
                 scene = FXMLLoader.load(getClass().getResource("/bk/view/MainMenu.fxml"));
                 stage.setScene(new Scene(scene));
                 stage.show();
+
             }
         }
     }
@@ -294,8 +295,8 @@ public class AddProductMenuController implements Initializable {
 
     /** Create initialize method for Add Product Menu.
      * Creates/Loads initial values and/or statements for scene function or troubleshooting.
-     * @param url
-     * @param resourceBundle
+     * @param url the url
+     * @param resourceBundle the Resource bundle
      */
 
     @Override
@@ -314,6 +315,7 @@ public class AddProductMenuController implements Initializable {
 
         // Initialize Associated Parts table
 
+        // tempAssocParts.clear();
         addProdAssocPartsTableView.setItems(tempAssocParts);
 
         assocPartIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));

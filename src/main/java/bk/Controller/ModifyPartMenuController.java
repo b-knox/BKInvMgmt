@@ -55,7 +55,7 @@ public class ModifyPartMenuController implements Initializable {
 
     @FXML private Label modPartMachineOrCompanyLabel;
 
-    /** Create FXML object for Radio Button selection. */
+    /** Create FXML object for Radio Button selection.  */
 
     @FXML private RadioButton modPartOutsourceRBtn;
 
@@ -65,7 +65,7 @@ public class ModifyPartMenuController implements Initializable {
 
     /** Create method that validates the value input for Inventory field.
      *
-     * Compare Stock level input and return true if value is in range between min & max input values.
+     * Compare Stock level input and return true if value is in range between min and max input values.
      * If validation fails, clear inventory field value and display error message to user.
      *
      * @param min user input minimum level
@@ -121,7 +121,7 @@ public class ModifyPartMenuController implements Initializable {
             case 1:
                 alert.setTitle("Error");
                 alert.setHeaderText("Incomplete Form Fields");
-                alert.setContentText("You must select an In-House or Outsourced Part and complete all fields to add!");
+                alert.setContentText("You must select an In-House or Outsourced Part and supply valid inputs for each field!");
                 alert.showAndWait();
                 break;
 
@@ -203,14 +203,14 @@ public class ModifyPartMenuController implements Initializable {
 
                     try {
 
-                        // If Part is Outsourced deleted and create new InHouse part
+                        // If Part is Outsourced delete and create new InHouse part
 
                         if (selectedPart instanceof Outsourced) {
 
                             Inventory.deletePart(selectedPart);
                             int machine = Integer.parseInt(modPartMachineOrCompanyTxt.getText());
                             Part modifiedPart = new InHouse(id, name, price, inv, min, max, machine);
-                            Inventory.updatePart(id - 101, modifiedPart);
+                            Inventory.addPart(modifiedPart);
                         }
 
                         // Update part if only modifying InHouse part
@@ -218,6 +218,10 @@ public class ModifyPartMenuController implements Initializable {
                         else {
 
                             int machine = Integer.parseInt(modPartMachineOrCompanyTxt.getText());
+                            Part modifiedPart = new InHouse(id, name, price, inv, min, max, machine);
+                            Inventory.updatePart(id - 101, modifiedPart);
+
+                            /*
                             selectedPart.setId(id);
                             selectedPart.setName(name);
                             selectedPart.setStock(inv);
@@ -225,7 +229,7 @@ public class ModifyPartMenuController implements Initializable {
                             selectedPart.setMax(max);
                             selectedPart.setMin(min);
                             ((InHouse) selectedPart).setMachineId(machine);
-
+                            */
                         }
 
                         stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
@@ -247,7 +251,7 @@ public class ModifyPartMenuController implements Initializable {
                         Inventory.deletePart(selectedPart);
                         String company = modPartMachineOrCompanyTxt.getText();
                         Part modifiedPart = new Outsourced(id, name, price, inv, min, max, company);
-                        Inventory.updatePart(id - 101, modifiedPart);
+                        Inventory.addPart(modifiedPart);
                     }
 
                     // Update part if only modifying Outsourced part
@@ -255,6 +259,10 @@ public class ModifyPartMenuController implements Initializable {
                     else {
 
                         String company = modPartMachineOrCompanyTxt.getText();
+                        Part modifiedPart = new Outsourced(id, name, price, inv, min, max, company);
+                        Inventory.updatePart(id - 101, modifiedPart);
+
+                        /*
                         selectedPart.setId(id);
                         selectedPart.setName(name);
                         selectedPart.setStock(inv);
@@ -262,7 +270,7 @@ public class ModifyPartMenuController implements Initializable {
                         selectedPart.setMax(max);
                         selectedPart.setMin(min);
                         ((Outsourced) selectedPart).setCompanyName(company);
-
+                         */
                     }
 
                     stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
@@ -298,8 +306,8 @@ public class ModifyPartMenuController implements Initializable {
 
     /** Create initialize method for Modify Part menu.
      * Creates/Loads initial values and/or statements for scene function or troubleshooting.
-     * @param url
-     * @param resourceBundle
+     * @param url the url
+     * @param resourceBundle the Resource bundle
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

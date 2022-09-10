@@ -4,11 +4,11 @@ package bk.Model;
  * @author Brandon Knox: 8/6/22 C482 Perfomance Assessment QKM2 - Inventory Management Application.
  */
 
-/** Define InHouse Class */
+/** Define InHouse Class  */
 
 public class InHouse extends Part {
 
-    /** Declare private variables */
+    /** Declare private variables  */
     private int machineId;
 
     /** Create InHouse constructor and call superclass variables.
@@ -26,7 +26,7 @@ public class InHouse extends Part {
         this.machineId = machineId;
     }
 
-    /** Define setters and getters. */
+    /** Define setters and getters.  */
 
     /**
      *

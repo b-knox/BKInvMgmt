@@ -7,14 +7,14 @@ package bk.Model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-/** Define Product Class */
+/** Define Product Class  */
 public class Product {
 
     /** Create Observable List to store parts that are associated with Products.
      */
     private ObservableList<Part> associatedParts = FXCollections.observableArrayList();
 
-    /** Declare private variables. */
+    /** Declare private variables.  */
    private int id;
    private String name;
    private double price;
@@ -40,7 +40,7 @@ public class Product {
     }
 
 
-    /** Define setters and getters. */
+    /** Define setters and getters.  */
 
     /**
      * @param id set the id

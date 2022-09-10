@@ -3,8 +3,6 @@ package bk.Controller;
 import bk.Model.InHouse;
 import bk.Model.Inventory;
 import bk.Model.Outsourced;
-import bk.Model.Part;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,11 +14,13 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 /** @author Brandon Knox: 8/6/22 C482 Perfomance Assessment QKM2 - Inventory Management Application
     This method controls the behavior of the Add Part Menu. */
+
 public class AddPartMenuController implements Initializable {
 
     /** Declare variables to set stage and scene.
@@ -30,9 +30,9 @@ public class AddPartMenuController implements Initializable {
     Parent scene;
 
     /** Create FXML objects for form field entries.
-     TextFields are used to accept user input when adding a part to the application.
-     Part Fields: ID (Auto Populate), Name, Inventory level, Min Inventory level, Max Inventory level, Cost/Price,
-     and a Machine Number or Company Name.
+     * TextFields are used to accept user input when adding a part to the application.
+     * Part Fields: ID (Auto Populate), Name, Inventory level, Min Inventory level, Max Inventory level, Cost/Price,
+     * and a Machine Number or Company Name.
      */
 
     @FXML private TextField addPartCostTxt;
@@ -63,7 +63,7 @@ public class AddPartMenuController implements Initializable {
 
     /** Create method that validates the value input for Inventory field.
      *
-     * Compare Stock level input and return true if value is in range between min & max input values.
+     * Compare Stock level input and return true if value is in range between min and max input values.
      * If validation fails, clear inventory field value and display error message to user.
      *
      * @param min user input minimum level
@@ -109,8 +109,8 @@ public class AddPartMenuController implements Initializable {
      * If no input is detected on the form, Cancel will return to Main Menu without confirmation.
      * If any input has been entered in the form, including selecting In-house or Outsourced, the user will be prompted to confirm before exit.
      *
-     * @param event
-     * @throws IOException */
+     * @param event Cancel button is pressed
+     * @throws IOException exception */
 
     @FXML void addPartCancelButton(ActionEvent event) throws IOException {
 
@@ -121,6 +121,7 @@ public class AddPartMenuController implements Initializable {
                 && !(addPartOutsourceRBtn.isSelected())) {
 
             stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+            //noinspection ConstantConditions
             scene = FXMLLoader.load(getClass().getResource("/bk/view/MainMenu.fxml"));
             stage.setScene(new Scene(scene));
             stage.show();
@@ -135,9 +136,10 @@ public class AddPartMenuController implements Initializable {
 
             Optional<ButtonType> confirmation = alert.showAndWait();
 
+            //noinspection OptionalGetWithoutIsPresent
             if (confirmation.get() == ButtonType.OK) {
                 stage = (Stage)((Button)event.getSource()).getScene().getWindow();
-                scene = FXMLLoader.load(getClass().getResource("/bk/view/MainMenu.fxml"));
+                scene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/bk/view/MainMenu.fxml")));
                 stage.setScene(new Scene(scene));
                 stage.show();
             }
@@ -156,48 +158,50 @@ public class AddPartMenuController implements Initializable {
         switch (inputType) {
 
             // Attempting to save part without completing all fields
-            case 1:
+            case 1 -> {
                 alert.setTitle("Error");
                 alert.setHeaderText("Incomplete Form Fields");
-                alert.setContentText("You must select an In-House or Outsourced Part and complete all fields to add!");
+                alert.setContentText("You must select an In-House or Outsourced Part and supply valid inputs for each field!");
                 alert.showAndWait();
-                break;
+            }
 
             // Inventory level is outside of range of Min & Max values
-            case 2:
+            case 2 -> {
                 alert.setTitle("Error");
                 alert.setHeaderText("Invalid Stock Level");
                 alert.setContentText("Inventory value must be a number between input for Min and Max fields!");
                 alert.showAndWait();
-                break;
+            }
 
             // Minimum level is greater than Max, blank, or negative
-            case 3:
+            case 3 -> {
                 alert.setTitle("Error");
                 alert.setHeaderText("Invalid Minimum Level");
                 alert.setContentText("Minimum level of stock must be greater than 0 and less than Maximum stock level!");
                 alert.showAndWait();
-                break;
+            }
 
             // Machine ID is not entered as a number
-            case 4:
+            case 4 -> {
                 alert.setTitle("Error");
                 alert.setHeaderText("Invalid Machine ID");
                 alert.setContentText("Please enter a numeric Machine ID!");
                 alert.showAndWait();
                 addPartMachineOrCompanyTxt.clear();
-                break;
+            }
         }
     }
 
-    /** RUNTIME ERROR: I initially tried to define the Variables 'Machine' and 'Company' before the if statements for Radio Button Selection.
+    /** Method that saves and adds a Part to the inventory and returns to the Main Menu.
+     *
+     * <p><b>
+     * RUNTIME ERROR: I initially tried to define the Variables Machine and Company before the if statements for Radio Button Selection.
      * The program compiled and allowed creation of In-house Parts, but returns a NumberFormatException when entering a
      * String value for the Company Name of Outsourced Parts.
-     *
-     * Method that saves and adds a Part to the inventory and returns to the Main Menu.
+     *</b></p>
      *
      * @param event save part button clicked
-     * @throws IOException
+     * @throws IOException exception
      */
     @FXML void addPartSaveButton(ActionEvent event) throws IOException {
 
@@ -224,7 +228,7 @@ public class AddPartMenuController implements Initializable {
                         Inventory.addPart(new InHouse(id, name, price, inv, min, max, machine));
 
                         stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-                        scene = FXMLLoader.load(getClass().getResource("/bk/view/MainMenu.fxml"));
+                        scene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/bk/view/MainMenu.fxml")));
                         stage.setScene(new Scene(scene));
                         stage.show();
 
@@ -271,9 +275,10 @@ public class AddPartMenuController implements Initializable {
 
 
     /** Create initialize method for Add Part menu.
+     *
      * Creates/Loads initial values and/or statements for scene function or troubleshooting.
-     * @param url
-     * @param resourceBundle
+     * @param url the url
+     * @param resourceBundle the Resource bundle
      */
 
     @Override

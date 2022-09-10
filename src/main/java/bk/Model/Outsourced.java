@@ -4,10 +4,10 @@ package bk.Model;
  * @author Brandon Knox: 8/6/22 C482 Perfomance Assessment QKM2 - Inventory Management Application.
  */
 
-/** Define Outsourced Class */
+/** Define Outsourced Class  */
 public class Outsourced extends Part {
 
-    /** Define private variables */
+    /** Define private variables  */
     private String companyName;
 
     /** Create Outsourced constructor and call superclass variables.
@@ -25,7 +25,7 @@ public class Outsourced extends Part {
         this.companyName = companyName;
     }
 
-    /** Create setters and getters */
+    /** Create setters and getters  */
 
     /**
      *

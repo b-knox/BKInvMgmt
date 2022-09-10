@@ -1,3 +1,5 @@
+/** @author Brandon Knox: 8/6/22 C482 Perfomance Assessment QKM2 - Inventory Management Application */
+
 module bk.invmgmt {
     requires javafx.controls;
     requires javafx.fxml;

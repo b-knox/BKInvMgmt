@@ -8,11 +8,11 @@ package bk.Model;
  * @author Brandon Knox: 8/6/22 C482 Perfomance Assessment QKM2 - Inventory Management Application.
  */
 
-/** Define Part Class. */
+/** Define Part Class.  */
 
 public abstract class Part {
 
-    /** Declare private variables */
+    /** Declare private variables  */
 
     private int id;
     private String name;

@@ -100,7 +100,7 @@ public class ModifyProductMenuController implements Initializable {
 
     /** Create method that validates the value input for Inventory field.
      *
-     * Compare Stock level input and return true if value is in range between min & max input values.
+     * Compare Stock level input and return true if value is in range between min and max input values.
      * If validation fails, clear inventory field value and display error message to user.
      *
      * @param min user input minimum level
@@ -192,7 +192,7 @@ public class ModifyProductMenuController implements Initializable {
         }
     }
 
-    /** Method that adds a highlighted Part from the Parts Table to the temporary Associated Parts List & TableView.
+    /** Method that adds a highlighted Part from the Parts Table to the temporary Associated Parts List and TableView.
      *
      * @param event Add button clicked
      */
@@ -324,8 +324,8 @@ public class ModifyProductMenuController implements Initializable {
 
     /** Create initialize method for Modify Product Menu.
      * Creates/Loads initial values and/or statements for scene function or troubleshooting.
-     * @param url
-     * @param resourceBundle
+     * @param url the url
+     * @param resourceBundle the Resource bundle
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

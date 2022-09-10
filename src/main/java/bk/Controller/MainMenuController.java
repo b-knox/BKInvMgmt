@@ -28,8 +28,7 @@ import java.util.ResourceBundle;
     This class controls the behavior of the Main Menu. */
 public class MainMenuController implements Initializable {
 
-    /**
-     * Declare variables to set stage and scene.
+    /** Declare variables to set stage and scene.
      * These variables are used to change windows in the application depending on user action.
      */
 
@@ -54,9 +53,7 @@ public class MainMenuController implements Initializable {
     @FXML private TableColumn<Part, Integer> partInvCol;
     @FXML private TableColumn<Part, Double> partCostCol;
 
-    /**
-     * TextField for searching parts table.
-     */
+    /** TextField for searching parts table. */
 
     @FXML private TextField partSearchField;
 
@@ -71,9 +68,7 @@ public class MainMenuController implements Initializable {
     @FXML private TableColumn<Product, Integer> prodInvCol;
     @FXML private TableColumn<Product, Double> prodCostCol;
 
-    /**
-     * TextField for searching products table.
-     */
+    /** TextField for searching products table. */
 
     @FXML private TextField prodSearchField;
 
@@ -91,13 +86,17 @@ public class MainMenuController implements Initializable {
         stage.show();
     }
 
-    /** Getter for current selection in Main Menu Parts table. */
+    /** Getter for current selection in Main Menu Parts table.
+     * @return the selected Part
+     */
 
     public static Part getSelectedPart() {
         return selectedPart;
     }
 
-    /** Getter for current selection in Main Menu Products table. */
+    /** Getter for current selection in Main Menu Products table.
+     * @return the selected Product
+     */
 
     public static Product getSelectedProduct() {
         return selectedProduct;
@@ -273,12 +272,11 @@ public class MainMenuController implements Initializable {
     }
 
 
-    /**
-     * Initialize method for the Main Menu Controller.
+    /** Initialize method for the Main Menu Controller.
      * Create/Load initial values and statements that affect the Main Menu.
      *
-     * @param url
-     * @param resourceBundle
+     * @param url the url
+     * @param resourceBundle the Resource bundle
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
